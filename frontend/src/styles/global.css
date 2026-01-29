@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #fef6e4;
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ffe66d;
+  --color-text: #001858;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --shadow: 4px 4px 0px var(--color-black);
+  --shadow-hover: 6px 6px 0px var(--color-black);
+  --border: 3px solid var(--color-black);
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Neo-brutalism button */
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: var(--border);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-black);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-white);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Input fields */
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  border: var(--border);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--color-bg);
+  border-top: 5px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+.error-message {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 16px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* Success message */
+.success-message {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  padding: 16px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border: 2px solid var(--color-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+/* Add these styles to your global.css for VideoPlayer component */
+
+/* Video.js Neo-Brutalism Theme */
+.video-js .vjs-big-play-button {
+  border: var(--border) !important;
+  background-color: var(--color-primary) !important;
+  font-size: 3em !important;
+  line-height: 2em !important;
+  height: 2em !important;
+  width: 2em !important;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.video-js:hover .vjs-big-play-button,
+.video-js .vjs-big-play-button:focus {
+  background-color: var(--color-secondary) !important;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.video-js .vjs-control-bar {
+  background-color: var(--color-white) !important;
+  border-top: var(--border) !important;
+}
+
+.video-js .vjs-play-progress,
+.video-js .vjs-volume-level {
+  background-color: var(--color-primary) !important;
+}
+
+.video-js .vjs-slider {
+  background-color: var(--color-bg) !important;
+}
+
+.video-js .vjs-button > .vjs-icon-placeholder:before {
+  color: var(--color-text) !important;
+}
+
+.video-js .vjs-time-control {
+  color: var(--color-text) !important;
+  font-weight: 600 !important;
+}
+
+/* Quality button hover effects */
+.quality-btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: var(--shadow-hover) !important;
+}
+
+.quality-btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0px var(--color-black) !important;
+}
+
+/* Responsive adjustments for video player */
+@media (max-width: 768px) {
+  .video-js .vjs-big-play-button {
+    font-size: 2em !important;
+  }
+}
