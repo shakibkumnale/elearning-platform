@@ -1,0 +1,30 @@
+# Backend Environment Variables
+PORT=5000
+NODE_ENV=development
+
+# Database
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=elearning_db
+DB_USER=postgres
+DB_PASSWORD=your_password
+
+# JWT
+JWT_SECRET=stkbantai
+JWT_EXPIRE=7d
+
+# Upload
+UPLOAD_DIR=./uploads
+MAX_FILE_SIZE=500mb
+
+# CORS
+CORS_ORIGIN=https://elearning-platform-frontend-woad.vercel.app/
+
+# MongoDB Connection
+MONGODB_URI="mongodb+srv://shakibkumnali:IDwrLxe6xvVVMNMw@cluster0.18kgu.mongodb.net/assingmentHR2?retryWrites=true&w=majority&appName=Cluster0"
+JWT_REFRESH_SECRET=stkbantai2
+JWT_REFRESH_EXPIRE=30d
+COOKIE_EXPIRE=7
+CLIENT_URL=https://elearning-platform-frontend-woad.vercel.app
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
