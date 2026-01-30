@@ -135,26 +135,33 @@ const VideoPlayer=({ videoUrl, videoType = "hls", onProgress })=> {
     <div style={{ position: "relative" }}>
       {availableResolutions.length > 1 && (
         <div
-          style={{ position: "absolute", right: 10, top: 10, zIndex: 10 }}
+          style={styles.qualityContainer}
           onMouseEnter={() => setShowQualityMenu(true)}
           onMouseLeave={() => setShowQualityMenu(false)}
         >
-          ⚙️
+          <div style={styles.settingsIcon}>
+            ⚙️
+          </div>
           {showQualityMenu && (
-            <div style={{ background: "#fff", padding: 10 }}>
-              {availableResolutions.map((r) => (
-                <div
-                  key={r.value}
-                  onClick={() => handleResolutionChange(r.value)}
-                  style={{
-                    cursor: "pointer",
-                    fontWeight:
-                      currentResolution === r.value ? "bold" : "normal"
-                  }}
-                >
-                  {r.label}
-                </div>
-              ))}
+            <div style={styles.resolutionSelector}>
+              <div style={styles.resolutionLabel}>QUALITY</div>
+              <div style={styles.resolutionButtons}>
+                {availableResolutions.map((r) => (
+                  <button
+                    key={r.value}
+                    onClick={() => handleResolutionChange(r.value)}
+                    className="quality-btn"
+                    style={{
+                      ...styles.resolutionButton,
+                      ...(currentResolution === r.value
+                        ? styles.resolutionButtonActive
+                        : {})
+                    }}
+                  >
+                    {r.label}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -352,14 +359,31 @@ if (typeof document !== 'undefined') {
       font-weight: 600 !important;
     }
     
+    .quality-btn {
+      padding: 8px 16px;
+      background-color: var(--color-white);
+      color: var(--color-text);
+      border: 2px solid var(--color-black);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+      letter-spacing: 0.5px;
+      text-align: center;
+      box-shadow: 2px 2px 0px var(--color-black);
+      width: 100%;
+    }
+    
     .quality-btn:hover {
-      transform: translate(-2px, -2px) !important;
-      box-shadow: var(--shadow-hover) !important;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px var(--color-black);
+      background-color: #f0f0f0;
     }
     
     .quality-btn:active {
-      transform: translate(1px, 1px) !important;
-      box-shadow: 2px 2px 0px var(--color-black) !important;
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px var(--color-black);
     }
   `;
   
